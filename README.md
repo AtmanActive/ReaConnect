@@ -38,4 +38,4 @@ There are three scripts of interest:
 
 Links:
 - Reaper Forums discussion and development thread: https://forum.cockos.com/showthread.php?t=272880
-- Reaper Stash download section: https://stash.reaper.fm/v/45737
+- Reaper Stash download section: https://stash.reaper.fm/v/45737/ReaConnect.zip
