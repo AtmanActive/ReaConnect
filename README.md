@@ -3,10 +3,13 @@ ReaConnect: VST Connect for Reaper
 
 ReaConnect is a set of Reaper projects and scripts that include routing and track templates, that, together with Sonobus or Audiomovers enable long-distance internet music collaboration and recording between a composer and a performer in the VST Connect style.
 
+![ReaConnect](https://github.com/AtmanActive/ReaConnect/assets/7526717/b1e2aa75-f06c-4465-8e88-1981ace4f7b8)
+
 It is intended for long-distance composing and recording sessions between two parties. We'll call these two parties Composer and Performer.
 Composer runs a special Reaper project with all of the tracks and arrangement, MIDI, audio, whatever.
 Performer runs a special Reaper project with nothing in it, that is setup once, with clever routing, and is then left as is, without Performer having to click anything while the session lasts.
 All recording is done on Composer's Reaper.
+
 
 Since there is a substantial latency between two parties, then, Composer has two modes of monitoring: listen-my-time and listen-Performer-time. Performer always hears everything in perfect sync. When Composer wants to sing or play something in real-time, they then switch their Reaper to my-time. This is done by muting the roundtrip track that is returning from Performer and unmuting the local monitoring track (there is a script for easy switching). In this, my-time mode, both Composer and Performer can hear what is Composer singing or playing in real-time. But, if Performer tries to sing or play in real-time, then, Composer will hear it desynced, due to internet latency. So, when it's time for Performer to sing or play, Composer needs to switch to Performer's time which then mutes the Composer's local monitoring track and unmutes the roundtrip track from the Performer, effectively enabling the Composer to hear what Performer hears, and that is their real-time. Of course, there is a script for easy switching.
 
