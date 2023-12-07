@@ -1,4 +1,4 @@
--- @description Mute the roundtrip track and unmute my local monitoring track to allow my real-time
+-- @description Mute my local monitoring track anc unmute the roundtrip track to allow performer's real-time
 -- @version 1.0
 -- @author AtmanActive
 -- @website https://forum.cockos.com/showthread.php?t=272880
@@ -33,9 +33,8 @@ function main()
   if not reaconnectlocal then return end
   local reaconnectremote = find_reaconnectremote()
   if not reaconnectremote then return end
-  reaper.SetMediaTrackInfo_Value(  reaconnectlocal, 'B_MUTE', 0 )
-  reaper.SetMediaTrackInfo_Value( reaconnectremote, 'B_MUTE', 1 )
+  reaper.SetMediaTrackInfo_Value(  reaconnectlocal, 'B_MUTE', 1 )
+  reaper.SetMediaTrackInfo_Value( reaconnectremote, 'B_MUTE', 0 )
 end
 
 main()  
-
