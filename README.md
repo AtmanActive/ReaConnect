@@ -5,6 +5,8 @@ ReaConnect is a set of Reaper projects and scripts that include routing and trac
 
 <a href="https://atmanactive.me.uk/ReaConnect.svg" target="_blank">Click here to see the detailed graph</a>
 
+Please note: you don't need to create the routing shown in the graph above. It has already been done for you in Reaper projects available for download in the Releases section.
+
 It is intended for long-distance composing and recording sessions between two parties. We'll call these two parties Composer and Performer.
 Composer runs a special Reaper project with all of the tracks and arrangement, MIDI, audio, whatever.
 Performer runs a special Reaper project with nothing in it, that is setup once, with clever routing, and is then left as is, without Performer having to click anything while the session lasts.
@@ -30,6 +32,7 @@ How to use:
 - Performer loads the Reaper project Performer.rpp (obtained from ReaConnectProject.zip downloaded from this project's Releases section)
 - Performer notifies Composer about their ASIO latency, as shown by their Reaper (in+out latency), and Composer types in this value in their Reaper's ReaConnect: REC track name, like, for example: {40ms}, so now Composer's Reaper knows how to compensate for Performer's ASIO latency.
 - Optionally, Composer prepares a template track in their Reaper, what they would like to use to listen to newly recorded tracks coming from Performer, and can then add this template track's name to their ReaConnect: REC track name, like, for example: (compressor-EQ-reverb). ReaConnect's on-record-stop script will then create a new track from the template track to save time for Composer.
+- Both Composer and Performer setup their AoIP VSTfx send/receive busses, where Composer sends to Performer a 4-channel audio, then, Performer receives 4-channel audio, then, Performer sends to Composer 6-channel audio, and finally, Composer receives 6-channel audio. This can be done either with Sonobus or with Audiomovers ListenTo. So, there are two audio cables, one 4-channel going from Composer to Performer and one 6-channel going from Performer to Composer. The number of channels should be automatically selected by the plug-in once you add it to appropriate tracks. In the Composer's Reaper: tracks ReaConnect: Send and ReaConnect: REC. In the Performer's Reaper: tracks ReaConnect: Send and ReaConnect: Receive. The track ReaConnect: REC is special in many ways and one of them is that track's record mode is Record: Output Multichannel which enables Reaper to record the track's output coming from VSTfx (Sonobus or ListenTo).
 
 There are three scripts of interest:
 - ReaConnect_listen_my_time.lua - when invoked, it will mute the roundtrip track and unmute the local mix monitoring track effectively enabling the Composer to sing or play an instrument in real-time and for the Performer to also hear it in proper sync, but Performer can't sing or play in real-time now.
