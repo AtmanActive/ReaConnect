@@ -12,7 +12,7 @@
   
   -- config defaults
   DATA2 = {  }
-  
+  for key in pairs(reaper) do _G[key]=reaper[key]  end 
   --------------------------------------------------------------------- 
   function DATA2:GetAudioData()
     local reading_len = 0.4 -- sec, approximately 12 frames at 30fps
@@ -53,6 +53,8 @@
     
     DATA2.audiosrc = t
   end
+  ---------------------------------------------------------------------  
+  function VF_GetProjectSampleRate() return tonumber(reaper.format_timestr_pos( 1-reaper.GetProjectTimeOffset( 0,false ), '', 4 )) end -- get sample rate obey project start offset
   ---------------------------------------------------------------------  
   function DATA2:GetBitstreamFromAudio() 
     
@@ -188,8 +190,4 @@ t[i+96].state == true
     SetMediaItemInfo_Value( DATA2.item_ptr, 'D_POSITION', DATA2.frame_pos - DATA2.smptesploffs / DATA2.SR  )
     reaper.UpdateArrange()
   end
-  
-  ----------------------------------------------------------------------
-  function VF_CheckFunctions(vrs)  local SEfunc_path = reaper.GetResourcePath()..'/Scripts/ReaConnect/mpl_Various_functions.lua'  if  reaper.file_exists( SEfunc_path ) then dofile(SEfunc_path)  if not VF_version or VF_version < vrs then  reaper.MB('Update '..SEfunc_path:gsub('%\\', '/')..' to version '..vrs..' or newer', '', 0) else return true end   else  reaper.MB(SEfunc_path:gsub('%\\', '/')..' not found. You should have ReaPack installed. Right click on ReaPack package and click Install, then click Apply', '', 0) if reaper.APIExists('ReaPack_BrowsePackages') then reaper.ReaPack_BrowsePackages( 'Various functions' ) else reaper.MB('ReaPack extension not found', '', 0) end end end
-  --------------------------------------------------------------------  
-  local ret = VF_CheckFunctions(3.42) if ret then local ret2 = VF_CheckReaperVrs(6.68,true) if ret2 then main() end end
+  main()
