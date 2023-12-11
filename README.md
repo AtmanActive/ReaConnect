@@ -39,6 +39,10 @@ There are three scripts of interest:
 - ReaConnect_listen_performer_time.lua - when invoked, it will mute the local mix monitoring track and unmute the roundtrip track effectively enabling the Performer to sing or play an instrument in real-time and for the Composer to also hear it in proper sync, but Composer can't sing or play for Performer in real-time now.
 - ReaConnect_on_record_stop.lua - activate this script every time you (Composer) finish recording the Performer on the track ReaConnect: REC. It is important that the last 6-channel-recorded-item is selected, which usually happens anyway when you hit stop after recording in Reaper. This script will then perform several steps in the following order: 1.) analyse the SMTP track in the recorded item and move the item in time to compensate for remote internet latency, 2.) analyse the ReaConnect: REC track's title and look for a number written in curly brackets with a 'ms' suffix, like, for example: {50ms} and, if found, will move the item in time to compensate for Performer's ASIO latency which Composer's Reaper can't figure out on it's own, but it needs to be written down in the track's name, 3.) remove all, now unnecessary audio channels from the recorded item leaving it as plain stereo, 4.) create a new track in the ReaConnect: MIX folder, either as a brand new blank track, or as a new track from a template, again designated in the name of ReaConnect: REC track, with a name inside parentheses, like so (blah), 5.) move the newly recorded and processed item to this newly created track inside the ReaConnect: MIX folder.
 
+Design by AtmanActive.
+Coding by MPL and AtmanActive.
+Developed: 2023.
+
 Links:
 - Reaper Forums discussion and development thread: https://forum.cockos.com/showthread.php?t=272880
 - Reaper Stash download section: https://stash.reaper.fm/v/45737/ReaConnect.zip
