@@ -5,7 +5,7 @@ ReaConnect is a set of Reaper projects and scripts that include routing and trac
 
 <a href="https://atmanactive.me.uk/ReaConnect.svg" target="_blank">Click here to see the detailed diagram</a>
 
-Please note: you don't need to create the routing shown in the graph above. It has already been done for you in Reaper projects available for download in the Releases section.
+Please note: you don't need to create the routing shown in the diagram above. It has already been done for you in Reaper projects available for download in the Releases section.
 
 It is intended for long-distance composing and recording sessions between two parties. We'll call these two parties Composer and Performer.
 Composer runs a special Reaper project with all of the tracks and arrangement, MIDI, audio, whatever.
