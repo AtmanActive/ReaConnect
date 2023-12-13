@@ -19,8 +19,8 @@ When recording, Composer records on the designated track titled ReaConnect: REC 
 
 
 How to install:
-- Download the ReaConnectScripts.zip from the Releases section and unzip to your Reaper/Scripts folder.
-- Download the ReaConnectProject.zip from the Releases section and unzip wherever you want.
+- Download the ReaConnectScripts.zip from the [Releases](https://github.com/AtmanActive/ReaConnect/releases) section and unzip to your Reaper/Scripts folder.
+- Download the ReaConnectProject.zip from the [Releases](https://github.com/AtmanActive/ReaConnect/releases) section and unzip wherever you want.
 - Start Reaper, open Actions->Show Actions list, then click on the button New action and choose Load Reascript..., now navigate to your Reaper/Scripts/ReaConnect folder and select all files whose names begin with ReaConnect. This will import all needed scripts into your Reaper.
 - Create toolbar shortcuts for the following scripts: ReaConnect_listen_my_time.lua, ReaConnect_listen_performer_time.lua and ReaConnect_on_record_stop.lua. First two you will use to switch the mix monitoring latency and the third one you will use after any recording of the Performer
 - Done
@@ -28,8 +28,8 @@ How to install:
 
 How to use:
 
-- Composer loads the Reaper project Composer.rpp (obtained from ReaConnectProject.zip downloaded from this project's Releases section)
-- Performer loads the Reaper project Performer.rpp (obtained from ReaConnectProject.zip downloaded from this project's Releases section)
+- Composer loads the Reaper project Composer.rpp (obtained from ReaConnectProject.zip downloaded from this project's [Releases](https://github.com/AtmanActive/ReaConnect/releases) section)
+- Performer loads the Reaper project Performer.rpp (obtained from ReaConnectProject.zip downloaded from this project's [Releases](https://github.com/AtmanActive/ReaConnect/releases) section)
 - Performer notifies Composer about their ASIO latency, as shown by their Reaper (in+out latency), and Composer types in this value in their Reaper's ReaConnect: REC track name, like, for example: {40ms}, so now Composer's Reaper knows how to compensate for Performer's ASIO latency.
 - Optionally, Composer prepares a template track in their Reaper, what they would like to use to listen to newly recorded tracks coming from Performer, and can then add this template track's name to their ReaConnect: REC track name, like, for example: (compressor-EQ-reverb). ReaConnect's on-record-stop script will then create a new track from the template track to save time for Composer.
 - Both Composer and Performer setup their AoIP VSTfx send/receive busses, where Composer sends to Performer a 4-channel audio, then, Performer receives 4-channel audio, then, Performer sends to Composer 6-channel audio, and finally, Composer receives 6-channel audio. This can be done either with Sonobus or with Audiomovers ListenTo. So, there are two audio cables, one 4-channel going from Composer to Performer and one 6-channel going from Performer to Composer. The number of channels should be automatically selected by the plug-in once you add it to appropriate tracks. In the Composer's Reaper: tracks ReaConnect: Send and ReaConnect: REC. In the Performer's Reaper: tracks ReaConnect: Send and ReaConnect: Receive. The track ReaConnect: REC is special in many ways and one of them is that track's record mode is Record: Output Multichannel which enables Reaper to record the track's output coming from VSTfx (Sonobus or ListenTo).
