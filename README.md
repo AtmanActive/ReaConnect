@@ -3,7 +3,7 @@ ReaConnect: VST Connect for Reaper
 
 ReaConnect is a set of Reaper projects and scripts that include routing and track templates, that, together with [Sonobus](https://github.com/sonosaurus/sonobus) or [Audiomovers ListenTo](https://audiomovers.com/) enable long-distance internet music collaboration and recording between a composer and a performer in the VST Connect style.
 
-<a href="https://atmanactive.me.uk/ReaConnect.svg" target="_blank">Click here to see the detailed graph</a>
+<a href="https://atmanactive.me.uk/ReaConnect.svg" target="_blank">Click here to see the detailed diagram</a>
 
 Please note: you don't need to create the routing shown in the graph above. It has already been done for you in Reaper projects available for download in the Releases section.
 
