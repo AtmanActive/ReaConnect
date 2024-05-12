@@ -5,7 +5,7 @@ Step 1/4:
 Routing audio cable 1 from Composer to Performer.
 Composer side (cyan window title in my screenshots).
 
-[ReaConnectSonoBus1A.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus1A.png)
+![ReaConnectSonoBus1A.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus1A.png)
 
 First we connect to a SonoBus group, I named it "My_ReaConnect_Test_Cable_1" but you should definitely use something unique for yourself. Just change the word "My" for "maxcomposer" or whatever.
 Then I named this side "Composer", then I clicked Connect.
@@ -19,7 +19,7 @@ Step 2/4:
 Routing audio cable 1 from Composer to Performer.
 Performer side (purple window title in my screenshots).
 
-[ReaConnectSonoBus1B.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus1B.png)
+![ReaConnectSonoBus1B.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus1B.png)
 
 Here I did the same thing to connect to the same SonoBus group, but I named this side in the "Your displayed name" field: "Performer".
 
@@ -41,7 +41,7 @@ Step 3/4:
 Routing audio cable 2 from Performer to Composer.
 Performer side (purple window title in my screenshots).
 
-[ReaConnectSonoBus2A.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus2A.png)
+![ReaConnectSonoBus2A.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus2A.png)
 
 Here we connect to a second, separate SonoBus group, I named it "My_ReaConnect_Test_Cable_2" but you should definitely use something unique for yourself. Just change the word "My" for "maxcomposer" or whatever.
 Then I named this side "Performer 2", then I clicked Connect.
@@ -56,7 +56,7 @@ Step 4/4:
 Routing audio cable 2 from Performer to Composer.
 Composer side (cyan window title in my screenshots).
 
-[ReaConnectSonoBus2B.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus2B.png)
+![ReaConnectSonoBus2B.png](https://raw.githubusercontent.com/AtmanActive/ReaConnect/main/ReaConnectSonoBus2B.png)
 
 Here I did the same thing to connect to the same SonoBus group, but I named this side in the "Your displayed name" field: "Composer 2".
 
