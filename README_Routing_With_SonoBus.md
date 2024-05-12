@@ -1,6 +1,6 @@
-Creating Routing for ReaConnect with SonoBus
+# Creating Routing for ReaConnect with SonoBus
 
-Step 1/4:
+## Step 1/4:
 
 Routing audio cable 1 from Composer to Performer.
 Composer side (cyan window title in my screenshots).
@@ -14,7 +14,11 @@ Then I clicked on INPUT MIXER in Sonobus, then on [+] button and I added STEREO 
 
 
 
-Step 2/4:
+---
+
+
+
+## Step 2/4:
 
 Routing audio cable 1 from Composer to Performer.
 Performer side (purple window title in my screenshots).
@@ -36,7 +40,11 @@ Cable 1 complete.
 
 
 
-Step 3/4:
+---
+
+
+
+## Step 3/4:
 
 Routing audio cable 2 from Performer to Composer.
 Performer side (purple window title in my screenshots).
@@ -50,8 +58,11 @@ Then I clicked on INPUT MIXER in Sonobus, then on [+] button two times and I add
 
 
 
+---
 
-Step 4/4:
+
+
+## Step 4/4:
 
 Routing audio cable 2 from Performer to Composer.
 Composer side (cyan window title in my screenshots).
@@ -72,4 +83,4 @@ Now, back to this SonoBus 2 RECEIVE on the Composer side, we click on the triang
 Cable 2 complete.
 
 
-All ready.
+All done.
