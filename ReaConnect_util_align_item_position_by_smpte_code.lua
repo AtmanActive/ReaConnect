@@ -1,10 +1,10 @@
 -- @description Align item position by SMPTE code on last channel
--- @version 1.01
+-- @version 1.02
 -- @author MPL
 -- @website http://forum.cockos.com/showthread.php?t=188335
 -- @changelog
---    # use project sample rate instead take sample rate
---    # fix wrong offset for a SMPTE sync pattern
+--    # try next seconds of audio if the audio is not found at first second of item
+--    # add message if script can`t find SMPTE pattern
 
 
  
@@ -32,6 +32,7 @@
     DATA2.tk_srclen = GetMediaSourceLength( DATA2.take_src ) 
     DATA2.item_ptr = item
     DATA2.item_pos = GetMediaItemInfo_Value( item, 'D_POSITION' )
+    DATA2.item_len = GetMediaItemInfo_Value( item, 'D_LENGTH' )
     DATA2.tk_offs = GetMediaItemTakeInfo_Value( take, 'D_STARTOFFS' )
     
     local accessor = CreateTrackAudioAccessor(DATA2.tr_ptr ) 
@@ -39,16 +40,25 @@
     local window_spls = math.floor(DATA2.SR*reading_len*DATA2.num_ch)
     local window_spls_perch = math.floor(DATA2.SR*reading_len)
     local samplebuffer = reaper.new_array(window_spls) 
-    reaper.GetAudioAccessorSamples( accessor, DATA2.SR, DATA2.num_ch, DATA2.pos_read, window_spls_perch, samplebuffer )
+    local has_data = 0
     local t = {}
-    local id, val = 0 
-    for i = 1, window_spls, DATA2.num_ch do
-      id = id + 1
-      val = samplebuffer[i + DATA2.num_ch-1]
-      if val >= 0 then val = 0 else val = 1 end
-      t[id] = {val = val, pos_spls = (i+DATA2.num_ch-1) / DATA2.num_ch}
+    for pos = DATA2.pos_read, DATA2.pos_read +DATA2.item_len do
+      reaper.GetAudioAccessorSamples( accessor, DATA2.SR, DATA2.num_ch, pos, window_spls_perch, samplebuffer )
+       t = {}
+      local id, val = 0 
+      for i = 1, window_spls, DATA2.num_ch do
+        id = id + 1
+        val = samplebuffer[i + DATA2.num_ch-1]
+        if val >= 0 then val = 0 else val = 1 end
+        t[id] = {val = val, pos_spls = (i+DATA2.num_ch-1) / DATA2.num_ch}
+        has_data = has_data + val
+      end
+      samplebuffer.clear()
+      if has_data ~= 0 then 
+        DATA2.pos_read = pos
+        break 
+      end
     end
-    samplebuffer.clear( )
     reaper.DestroyAudioAccessor( accessor )
     
     DATA2.audiosrc = t
@@ -64,7 +74,7 @@
     
     
     -- handle rise above 0
-    local t2 = {}
+     t2 = {}
     
     for i = 1, #DATA2.audiosrc-1 do
       cur_value = DATA2.audiosrc[i].val
@@ -81,6 +91,8 @@
       end
     end 
     local sz = #t2 
+    
+    if sz == 0 then MB('No SMPTE audio data in the fisrt second of take', 'Error', 0) return end
     
     -- add length of gates
       for i = 1,sz-1 do t2[i].len = t2[i+1].pos_spls - t2[i].pos_spls end
@@ -116,6 +128,7 @@
   ---------------------------------------------------------------------  
   function DATA2:GetValidMask()
     local t = DATA2.bitstreamout
+    if not t then return end
     local sz = #t
     local valid_mask
     for offs = 1, sz-96 do
